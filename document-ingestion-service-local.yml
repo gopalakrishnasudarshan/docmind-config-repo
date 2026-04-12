@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/docmind_db?currentSchema=ingestion
+    url: jdbc:postgresql://localhost:5433/docmind_db?currentSchema=ingestion
     username: postgres
     password: '{cipher}a84d1abec6c38392076f01671913333598ffef9244861247b6a9e5c0e79f3bf1'
     driver-class-name: org.postgresql.Driver

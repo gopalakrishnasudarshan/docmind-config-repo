@@ -18,7 +18,7 @@ spring:
 
   security:
     jwt:
-      secret: '{cipher}your_encrypted_jwt_secret_here'
+      secret: '{cipher}aae88167684fa4fd51ecb0e5cbf2492ecdd3b37aad205f51d05760112485c97ca790da233aaa64e0f6dcf7e5ffc56237'
       expiration-ms: 86400000        # 24 hours
       refresh-expiration-ms: 604800000  # 7 days
 

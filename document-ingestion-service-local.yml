@@ -1,0 +1,42 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/docmind_db?currentSchema=ingestion
+    username: postgres
+    password: '{cipher}your_encrypted_password_here'
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: ingestion
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 60MB
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
+docmind:
+  storage:
+    upload-dir: ${user.home}/docmind/uploads
+  messaging:
+    queues:
+      document-processing: document.processing.queue
+      document-processed: document.processed.queue
+
+logging:
+  level:
+    com.docmind.ingestion: DEBUG

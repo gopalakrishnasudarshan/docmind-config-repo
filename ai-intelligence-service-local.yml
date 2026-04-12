@@ -1,0 +1,65 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/docmind_db?currentSchema=intelligence
+    username: postgres
+    password: '{cipher}your_encrypted_password_here'
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: intelligence
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
+  ai:
+    openai:
+      api-key: '{cipher}your_encrypted_openai_key_here'
+      chat:
+        options:
+          model: gpt-4o
+          temperature: 0.7
+          max-tokens: 2000
+      embedding:
+        options:
+          model: text-embedding-3-small
+
+  vector-store:
+    pgvector:
+      schema-name: intelligence
+      table-name: document_embeddings
+      dimensions: 1536
+      distance-type: COSINE_DISTANCE
+      initialize-schema: true
+
+docmind:
+  messaging:
+    queues:
+      document-processing: document.processing.queue
+      document-processed: document.processed.queue
+  ai:
+    langchain4j:
+      chat-model:
+        provider: openai
+        model-name: gpt-4o
+        temperature: 0.7
+        max-tokens: 2000
+      rag:
+        max-results: 5
+        min-score: 0.7
+
+logging:
+  level:
+    com.docmind.intelligence: DEBUG
+    dev.langchain4j: DEBUG

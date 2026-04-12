@@ -1,0 +1,12 @@
+# OS files
+Thumbs.db
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Temp files
+*.tmp
+*.log

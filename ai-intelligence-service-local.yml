@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/docmind_db?currentSchema=intelligence
+    url: jdbc:postgresql://localhost:5433/docmind_db?currentSchema=intelligence
     username: postgres
-    password: '{cipher}your_encrypted_password_here'
+    password: '{cipher}a84d1abec6c38392076f01671913333598ffef9244861247b6a9e5c0e79f3bf1'
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -25,10 +25,11 @@ spring:
 
   ai:
     openai:
-      api-key: '{cipher}your_encrypted_openai_key_here'
+      api-key: '{cipher}32d32139300b006b73e9a21612ecc2c9f48b3d911741e22a21919c20e1b1d412f7b2091b07119cbc1aeb0222b298650b19d6ccc47c1f4de524da9766be0d8eeeb804caefad30c3f3d8522e405bbbfe6e'
+      base-url: https://api.groq.com/openai
       chat:
         options:
-          model: gpt-4o
+          model: llama-3.3-70b-versatile
           temperature: 0.7
           max-tokens: 2000
       embedding:

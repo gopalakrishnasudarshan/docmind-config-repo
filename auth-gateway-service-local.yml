@@ -19,8 +19,12 @@ spring:
     enabled: true
     locations: classpath:db/migration
     schemas: auth
+    default-schema: auth
     baseline-on-migrate: true
     validate-on-migrate: true
+    url: jdbc:postgresql://localhost:5433/docmind_db
+    user: postgres
+    password: '{cipher}a84d1abec6c38392076f01671913333598ffef9244861247b6a9e5c0e79f3bf1'
 
   security:
     jwt:
